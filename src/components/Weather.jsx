@@ -1,4 +1,5 @@
 import React, {useRef, useState } from 'react'
+import { Link } from 'react-router-dom';
 import './Weather.css'
 import search_icon from '../assets/search.png' 
 import wind_icon from '../assets/wind.png' 
@@ -151,6 +152,7 @@ const Weather = () => {
             <input ref= {inputRef} type='text' placeholder='Search'/>
             <img src={search_icon} alt=''onClick={()=>handleSearch(inputRef.current.value)}/>
         </div>
+        <Link to="/more-features" className="more-features-btn">More Features</Link>
         <div className='date-time-container'>
             <p className='date'>{weatherData.date}</p>
              <p className='local-time'>{weatherData.localTime}</p>
@@ -158,7 +160,7 @@ const Weather = () => {
         
         {weatherData && <img src={weatherData.icon} alt="Weather Icon" className='weather-icon' />}
         <p className='temperature'>{weatherData.temperature}°C</p>
-        <p1 className='feels-like'>Feels like: {weatherData.feelsLike}°C</p1>
+        <p className='feels-like'>Feels like: {weatherData.feelsLike}°C</p>
         <p className='location'>{weatherData.location}</p>
         <div className="weather-data">
             <div className='col'>
